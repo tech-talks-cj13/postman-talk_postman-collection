@@ -12,13 +12,12 @@
 					"listen": "test",
 					"script": {
 						"id": "0b25f443-f0c4-4afe-a372-86661f2171ee",
-						"type": "text/javascript",
 						"exec": [
 							"var schema = {",
 							"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
 							"    \"type\": \"object\",",
 							"    \"properties\": {",
-							"        \"products\": {",
+							"        \"data\": {",
 							"            \"type\" : \"array\",",
 							"            \"items\" : {    ",
 							"                \"type\": \"object\",",
@@ -57,7 +56,7 @@
 							"        }",
 							"    },",
 							"    \"additionalProperties\": false,",
-							"    \"required\": [ \"products\"]",
+							"    \"required\": [ \"data\"]",
 							"};",
 							"",
 							"var data = pm.response.json();",
@@ -71,7 +70,8 @@
 							"});",
 							"",
 							"console.log(tv4.error);  "
-						]
+						],
+						"type": "text/javascript"
 					}
 				}
 			],
