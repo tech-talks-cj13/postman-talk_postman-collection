@@ -1,0 +1,436 @@
+{
+	"info": {
+		"_postman_id": "935ff309-70fd-47a6-bd42-c92e74609cea",
+		"name": "Products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0b25f443-f0c4-4afe-a372-86661f2171ee",
+						"type": "text/javascript",
+						"exec": [
+							"var schema = {",
+							"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"products\": {",
+							"            \"type\" : \"array\",",
+							"            \"items\" : {    ",
+							"                \"type\": \"object\",",
+							"                \"properties\": {",
+							"                    \"id\": { ",
+							"                        \"type\": \"number\" ",
+							"                    },",
+							"                    \"obj\": { ",
+							"                        \"type\": \"string\" ",
+							"                    },",
+							"                    \"packages\": {      ",
+							"                        \"type\" : \"object\",",
+							"                        \"properties\" : {",
+							"                            \"single\": { ",
+							"                                \"type\": \"object\",",
+							"                                \"properties\": {",
+							"                                    \"id\": \"integer\",",
+							"                                    \"price\": \"number\"",
+							"                                }",
+							"                            },",
+							"                            \"kilo\": { ",
+							"                                \"type\": \"object\",",
+							"                                \"properties\": {",
+							"                                    \"id\": \"integer\",",
+							"                                    \"price\": \"number\"",
+							"                                }",
+							"                            }",
+							"                        },",
+							"                        \"additionalProperties\": false,",
+							"                        \"required\": [ \"single\", \"kilo\" ]",
+							"                    },",
+							"                },",
+							"                \"additionalProperties\": false,",
+							"                \"required\": [ \"id\", \"obj\", \"packages\"]",
+							"            },       ",
+							"        }",
+							"    },",
+							"    \"additionalProperties\": false,",
+							"    \"required\": [ \"products\"]",
+							"};",
+							"",
+							"var data = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data, schema)).to.be.true;",
+							"});",
+							"",
+							"console.log(tv4.error);  "
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{base_path}}/products",
+					"host": [
+						"{{base_path}}"
+					],
+					"path": [
+						"products"
+					]
+				},
+				"description": "Lista todos los productos existentes"
+			},
+			"response": []
+		},
+		{
+			"name": "Product ID = 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4abb5e9a-68f7-4a46-8d36-8fed548bef3f",
+						"type": "text/javascript",
+						"exec": [
+							"var schema = {",
+							"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"data\": {",
+							"            \"type\": \"object\",",
+							"            \"properties\": {",
+							"                \"id\": { ",
+							"                    \"type\": \"number\" ",
+							"                },",
+							"                \"obj\": { ",
+							"                    \"type\": \"string\" ",
+							"                },",
+							"                \"packages\": {      ",
+							"                    \"type\" : \"object\",",
+							"                    \"properties\" : {",
+							"                        \"single\": { ",
+							"                            \"type\": \"object\",",
+							"                            \"properties\": {",
+							"                                \"id\": \"integer\",",
+							"                                \"price\": \"number\"",
+							"                            }",
+							"                        },",
+							"                        \"kilo\": { ",
+							"                            \"type\": \"object\",",
+							"                            \"properties\": {",
+							"                                \"id\": \"integer\",",
+							"                                \"price\": \"number\"",
+							"                            }",
+							"                        }",
+							"                    },",
+							"                    \"additionalProperties\": false,",
+							"                    \"required\": [ \"single\", \"kilo\" ]",
+							"                },",
+							"            },",
+							"            \"additionalProperties\": false,",
+							"            \"required\": [ \"id\", \"obj\", \"packages\"]",
+							"        }",
+							"    },",
+							"    \"additionalProperties\": false,",
+							"    \"required\": [ \"data\"]",
+							"};",
+							"",
+							"var data = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data, schema)).to.be.true;",
+							"});",
+							"",
+							"console.log(tv4.error);  "
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{base_path}}/products/1",
+					"host": [
+						"{{base_path}}"
+					],
+					"path": [
+						"products",
+						"1"
+					]
+				},
+				"description": "Obtener producto con ID = 1"
+			},
+			"response": []
+		},
+		{
+			"name": "Product ID = 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2937cf5c-35f4-4e90-b940-ba66bf7e9190",
+						"type": "text/javascript",
+						"exec": [
+							"var schema = {",
+							"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"data\": {",
+							"            \"type\": \"object\",",
+							"            \"properties\": {",
+							"                \"id\": { ",
+							"                    \"type\": \"number\" ",
+							"                },",
+							"                \"obj\": { ",
+							"                    \"type\": \"string\" ",
+							"                },",
+							"                \"packages\": {      ",
+							"                    \"type\" : \"object\",",
+							"                    \"properties\" : {",
+							"                        \"single\": { ",
+							"                            \"type\": \"object\",",
+							"                            \"properties\": {",
+							"                                \"id\": \"integer\",",
+							"                                \"price\": \"number\"",
+							"                            }",
+							"                        },",
+							"                        \"kilo\": { ",
+							"                            \"type\": \"object\",",
+							"                            \"properties\": {",
+							"                                \"id\": \"integer\",",
+							"                                \"price\": \"number\"",
+							"                            }",
+							"                        }",
+							"                    },",
+							"                    \"additionalProperties\": false,",
+							"                    \"required\": [ \"single\", \"kilo\" ]",
+							"                },",
+							"            },",
+							"            \"additionalProperties\": false,",
+							"            \"required\": [ \"id\", \"obj\", \"packages\"]",
+							"        }",
+							"    },",
+							"    \"additionalProperties\": false,",
+							"    \"required\": [ \"data\"]",
+							"};",
+							"",
+							"var data = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data, schema)).to.be.true;",
+							"});",
+							"",
+							"console.log(tv4.error);  "
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{base_path}}/products/2",
+					"host": [
+						"{{base_path}}"
+					],
+					"path": [
+						"products",
+						"2"
+					]
+				},
+				"description": "Obtener producto con ID = 2"
+			},
+			"response": []
+		},
+		{
+			"name": "Product ID = 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cdd13ece-8f70-4f7e-ac44-f9fdea331095",
+						"type": "text/javascript",
+						"exec": [
+							"var schema = {",
+							"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"data\": {",
+							"            \"type\": \"object\",",
+							"            \"properties\": {",
+							"                \"id\": { ",
+							"                    \"type\": \"number\" ",
+							"                },",
+							"                \"obj\": { ",
+							"                    \"type\": \"string\" ",
+							"                },",
+							"                \"packages\": {      ",
+							"                    \"type\" : \"object\",",
+							"                    \"properties\" : {",
+							"                        \"single\": { ",
+							"                            \"type\": \"object\",",
+							"                            \"properties\": {",
+							"                                \"id\": \"integer\",",
+							"                                \"price\": \"number\"",
+							"                            }",
+							"                        },",
+							"                        \"kilo\": { ",
+							"                            \"type\": \"object\",",
+							"                            \"properties\": {",
+							"                                \"id\": \"integer\",",
+							"                                \"price\": \"number\"",
+							"                            }",
+							"                        }",
+							"                    },",
+							"                    \"additionalProperties\": false,",
+							"                    \"required\": [ \"single\", \"kilo\" ]",
+							"                },",
+							"            },",
+							"            \"additionalProperties\": false,",
+							"            \"required\": [ \"id\", \"obj\", \"packages\"]",
+							"        }",
+							"    },",
+							"    \"additionalProperties\": false,",
+							"    \"required\": [ \"data\"]",
+							"};",
+							"",
+							"var data = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data, schema)).to.be.true;",
+							"});",
+							"",
+							"console.log(tv4.error);  "
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{base_path}}/products/3",
+					"host": [
+						"{{base_path}}"
+					],
+					"path": [
+						"products",
+						"3"
+					]
+				},
+				"description": "Obtener producto con ID = 3"
+			},
+			"response": []
+		},
+		{
+			"name": "Product ID = 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "017b47e2-c007-4e34-adf4-39faa433ab75",
+						"type": "text/javascript",
+						"exec": [
+							"var schema = {",
+							"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"data\": {",
+							"            \"type\": \"object\",",
+							"            \"properties\": {",
+							"                \"id\": { ",
+							"                    \"type\": \"number\" ",
+							"                },",
+							"                \"obj\": { ",
+							"                    \"type\": \"string\" ",
+							"                },",
+							"                \"packages\": {      ",
+							"                    \"type\" : \"object\",",
+							"                    \"properties\" : {",
+							"                        \"single\": { ",
+							"                            \"type\": \"object\",",
+							"                            \"properties\": {",
+							"                                \"id\": \"integer\",",
+							"                                \"price\": \"number\"",
+							"                            }",
+							"                        },",
+							"                        \"kilo\": { ",
+							"                            \"type\": \"object\",",
+							"                            \"properties\": {",
+							"                                \"id\": \"integer\",",
+							"                                \"price\": \"number\"",
+							"                            }",
+							"                        }",
+							"                    },",
+							"                    \"additionalProperties\": false,",
+							"                    \"required\": [ \"single\", \"kilo\" ]",
+							"                },",
+							"            },",
+							"            \"additionalProperties\": false,",
+							"            \"required\": [ \"id\", \"obj\", \"packages\"]",
+							"        }",
+							"    },",
+							"    \"additionalProperties\": false,",
+							"    \"required\": [ \"data\"]",
+							"};",
+							"",
+							"var data = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(data, schema)).to.be.true;",
+							"});",
+							"",
+							"console.log(tv4.error);  "
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{base_path}}/products/4",
+					"host": [
+						"{{base_path}}"
+					],
+					"path": [
+						"products",
+						"4"
+					]
+				},
+				"description": "Obtener producto con ID = 4"
+			},
+			"response": []
+		}
+	]
+}

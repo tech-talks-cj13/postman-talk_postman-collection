@@ -1,0 +1,15 @@
+{
+  "name": "lindopostman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-dev": "newman run collections/Products.postman_collection.json -e environments/Development.postman_environment.json --reporters cli,junit",
+    "test-prod":"newman run collections/Products.postman_collection.json -e environments/Production.postman_environment.json --reporters cli,junit"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "newman": "^4.1.0"
+  }
+}

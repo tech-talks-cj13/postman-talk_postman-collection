@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Products" tests="5" time="1.594">
+  <testsuite name="Product List" id="b353e836-a6f2-4088-a48d-3e985c5363be" tests="2" failures="0" errors="0" time="0.534">
+    <testcase name="Status code is 200" time="0.534"/>
+    <testcase name="Schema is valid" time="0.534"/>
+  </testsuite>
+  <testsuite name="Product ID = 1" id="d187e922-c1ff-4fe9-be16-5a021ab37156" tests="2" failures="0" errors="0" time="0.300">
+    <testcase name="Status code is 200" time="0.300"/>
+    <testcase name="Schema is valid" time="0.300"/>
+  </testsuite>
+  <testsuite name="Product ID = 2" id="c9fffc1d-7aeb-45be-93f8-5a25148422bf" tests="2" failures="0" errors="0" time="0.245">
+    <testcase name="Status code is 200" time="0.245"/>
+    <testcase name="Schema is valid" time="0.245"/>
+  </testsuite>
+  <testsuite name="Product ID = 3" id="0b648a14-d71b-4cb8-844c-71b2fca5d180" tests="2" failures="0" errors="0" time="0.255">
+    <testcase name="Status code is 200" time="0.255"/>
+    <testcase name="Schema is valid" time="0.255"/>
+  </testsuite>
+  <testsuite name="Product ID = 4" id="c4dc24ef-30b4-4ca4-8e01-1deed4d11e1a" tests="2" failures="0" errors="0" time="0.260">
+    <testcase name="Status code is 200" time="0.260"/>
+    <testcase name="Schema is valid" time="0.260"/>
+  </testsuite>
+</testsuites>
